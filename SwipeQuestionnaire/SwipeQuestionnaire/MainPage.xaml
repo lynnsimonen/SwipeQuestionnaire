@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="SwipeQuestionnaire.MainPage"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:local="clr-namespace:SwipeQuestionnaire" 
+            mc:Ignorable="d" >
+
+    <StackLayout >
+        <StackLayout BackgroundColor="Blue" >
+            <Label 
+            Text="Personality Quiz." 
+            x:Name="lbl_QuizTitle"
+            FontSize="Title"
+            HorizontalTextAlignment="Center"
+            BackgroundColor="red"
+            TextColor="White"
+            Padding="30,15,30,15"
+               />
+
+
+
+            <Label 
+            Text="Let's Get Started!!!"
+            x:Name="lbl_Question_Number"
+            Padding="15,15,5,0"
+            TextColor="White"
+            HorizontalOptions="Center"
+            FontSize="15"
+            FontAttributes="Bold"
+                />
+
+            <Label 
+            Text="Questions: "
+            x:Name="lbl_Question_Listed"
+            Padding="15,0,15,10" 
+            FontSize="16"
+            HorizontalTextAlignment="Start"
+            TextColor="Blue"
+                />
+        </StackLayout>
+
+        <!-- BEGIN: image swipe container here!!! -->
+
+
+
+        <local:SwipeContainer Swipe="OnSwiped" 
+         HorizontalOptions="Center" >
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image x:Name="theAmerImage" Source="_1burger.jpg" Aspect="AspectFit"
+                        HeightRequest="{OnPlatform iOS=300, Android=120}"
+                        HorizontalOptions="FillAndExpand" />
+                    <Image x:Name="theFrenchImage" Source="_1burger.jpg" Aspect="AspectFit"
+                        HeightRequest="{OnPlatform iOS=300, Android=120}"
+                        HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <Label x:Name="theLabel"                        
+                        BackgroundColor="Blue" 
+                        Text="Burger" 
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        VerticalOptions="CenterAndExpand" />
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="True" 
+                           Text="&lt;&lt; True" 
+                           TextColor="Black"
+                           HorizontalTextAlignment="Start"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"
+                            />
+                    <Label x:Name="False" 
+                           Text="False >>" 
+                           TextColor="Black"
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalTextAlignment="End"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"
+                           />
+                </StackLayout >
+            </StackLayout>
+        </local:SwipeContainer>
+
+        <!-- END OF :image container!!! -->
+
+
+
+    </StackLayout>
+
+</ContentPage>
