@@ -8,77 +8,101 @@
             xmlns:local="clr-namespace:SwipeQuestionnaire" 
             mc:Ignorable="d" >
 
-    <StackLayout >
-        <StackLayout BackgroundColor="Blue" >
+    <StackLayout BackgroundColor="Yellow" >
+        <StackLayout  >
             <Label 
-            Text="Personality Quiz." 
+            Text="PERSONALITY QUIZ"
             x:Name="lbl_QuizTitle"
             FontSize="Title"
             HorizontalTextAlignment="Center"
-            BackgroundColor="red"
-            TextColor="White"
-            Padding="30,15,30,15"
+            TextColor="Black"
+            FontAttributes="Bold"
+            Padding="30,120,30,15"                
                />
 
-
-
-            <Label 
-            Text="Let's Get Started!!!"
-            x:Name="lbl_Question_Number"
-            Padding="15,15,5,0"
+            <Button 
+            Text="Play"
+            x:Name="btn_play"
+                Clicked="btn_play_clicked"
+            Padding="15,15,15,15"
             TextColor="White"
+            BackgroundColor="Red"
+                BorderColor="Black"
+                BorderWidth="2"
+                CornerRadius="20"
             HorizontalOptions="Center"
-            FontSize="15"
+            FontSize="20"
             FontAttributes="Bold"
                 />
 
-            <Label 
-            Text="Questions: "
-            x:Name="lbl_Question_Listed"
-            Padding="15,0,15,10" 
-            FontSize="16"
-            HorizontalTextAlignment="Start"
-            TextColor="Blue"
-                />
         </StackLayout>
 
         <!-- BEGIN: image swipe container here!!! -->
 
-
-
         <local:SwipeContainer Swipe="OnSwiped" 
          HorizontalOptions="Center" >
             <StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Image x:Name="theAmerImage" Source="_1burger.jpg" Aspect="AspectFit"
-                        HeightRequest="{OnPlatform iOS=300, Android=120}"
-                        HorizontalOptions="FillAndExpand" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Frame 
+                       x:Name="Frame_France"
+                       BorderColor="Black" 
+                       CornerRadius="20" 
+                       Margin="0,40,0,10"
+                       HasShadow="True">
                     <Image x:Name="theFrenchImage" Source="_1burger.jpg" Aspect="AspectFit"
-                        HeightRequest="{OnPlatform iOS=300, Android=120}"
+                        WidthRequest="{OnPlatform iOS=300, Android=140}"
                         HorizontalOptions="FillAndExpand" />
+                    </Frame>
+                    <Frame 
+                        x:Name="Frame_Amer"
+                        BorderColor="Black" 
+                       CornerRadius="20" 
+                       Margin="0,40,0,10"        
+                       HasShadow="True">
+                    <Image x:Name="theAmerImage" Source="_1burger.jpg" Aspect="AspectFit"
+                        WidthRequest="{OnPlatform iOS=300, Android=140}"
+                        HorizontalOptions="FillAndExpand" />
+                    </Frame>
                 </StackLayout>
-
-                <Label x:Name="theLabel"                        
-                        BackgroundColor="Blue" 
+                
+                <Frame 
+                   x:Name="Frame_theImage"
+                    BorderColor="Black" 
+                    CornerRadius="20" 
+                    Margin="0,40,0,10"        
+                    HasShadow="True">
+                    <Image x:Name="theImage" Source="" Aspect="AspectFit"
+                            HeightRequest="{OnPlatform iOS=300, Android=250}"                        
+                            HorizontalOptions="FillAndExpand" />
+                </Frame>
+                
+                <Label x:Name="theLabel"                           
                         Text="Burger" 
-                        TextColor="White"
+                        TextColor="Black"
+                       FontSize="18"
                         FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
                         HorizontalOptions="Center"
                         VerticalOptions="CenterAndExpand" />
+
                 <StackLayout Orientation="Horizontal">
-                    <Label x:Name="True" 
-                           Text="&lt;&lt; True" 
-                           TextColor="Black"
+                    <Label x:Name="False" 
+                           Text="&lt;&lt; False (Swipe Left)" 
+                           TextColor="Red"
+                           Padding="10,20,0,0"
                            HorizontalTextAlignment="Start"
-                           FontAttributes="Bold"
+                           FontSize="18"
+                           FontAttributes="Bold,Italic"
                            HorizontalOptions="FillAndExpand"
                             />
-                    <Label x:Name="False" 
-                           Text="False >>" 
-                           TextColor="Black"
+                    <Label x:Name="True" 
+                           Text="(Swipe Right) True >>" 
+                           TextColor="Red"
                            VerticalOptions="CenterAndExpand" 
+                           Padding="0,20,10,0"
                            HorizontalTextAlignment="End"
-                           FontAttributes="Bold"
+                           FontSize="18"
+                           FontAttributes="Bold,Italic"
                            HorizontalOptions="FillAndExpand"
                            />
                 </StackLayout >

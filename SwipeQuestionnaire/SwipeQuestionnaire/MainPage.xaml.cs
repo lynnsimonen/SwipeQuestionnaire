@@ -41,83 +41,125 @@ namespace SwipeQuestionnaire
             theLabel.Text = PersonalityQuestions[index].Question.ToString();
             theFrenchImage.Source = PersonalityQuestions[index].ImageFrench.ToString();
 
+            Frame_theImage.IsVisible = false;
+            btn_play.IsVisible = false;
+
+        }
+
+        void btn_play_clicked(object sender, EventArgs e)
+        {
+            amerPoints = 0;
+            frenchPoints = 0;
+            index = 0;
+            theAmerImage.Source = PersonalityQuestions[index].ImageAmer.ToString();
+            theLabel.Text = PersonalityQuestions[index].Question.ToString();
+            theFrenchImage.Source = PersonalityQuestions[index].ImageFrench.ToString();
+
+            Frame_theImage.IsVisible = false;
+            btn_play.IsVisible = false;
+            True.IsVisible = true;
+            False.IsVisible = true;
+            Frame_Amer.IsVisible = true;
+            Frame_France.IsVisible = true;
+            theFrenchImage.IsVisible = true;
+            theAmerImage.IsVisible = true;
+
         }
 
         void OnSwiped(object sender, SwipedEventArgs e)
         {
-            //Right is True and French
+            //Right is True and American
             if (e.Direction == SwipeDirection.Right)
             {
-                frenchPoints++;
+                amerPoints++;
+                index++;
                 if (index <= PersonalityQuestions.Count - 1)
                 {
-                    lbl_Question_Number.IsVisible = true;
                     True.IsVisible = true;
                     False.IsVisible =true;
+                    
                     theAmerImage.Source = PersonalityQuestions[index].ImageAmer.ToString();
                     theLabel.Text = PersonalityQuestions[index].Question.ToString();
                     theFrenchImage.Source = PersonalityQuestions[index].ImageFrench.ToString();
-                    index++;
+                    
                 }
                 else if (amerPoints > frenchPoints)
                 {
                     Random rnd = new Random();
                     int image = rnd.Next(0, 4);
-                    theAmerImage.Source = amerImages[image].ToString();
-                    theLabel.Text = "Yay!  You are a true American: lover of new ideas and a robust lifestyle.";
-                    theFrenchImage.Source = "";
-                    lbl_Question_Number.IsVisible = false;
+                    theImage.Source = amerImages[image].ToString();
+                    theLabel.Text = "Yay!  You are a true American!";
+                    theFrenchImage.IsVisible = false;
+                    theAmerImage.IsVisible = false;
+
                     True.IsVisible = false;
                     False.IsVisible = false;
+                    Frame_Amer.IsVisible = false;
+                    Frame_France.IsVisible = false;
+                    Frame_theImage.IsVisible = true;
+                    btn_play.IsVisible = true;
                 }
                 else if (amerPoints < frenchPoints)
                 {
                     Random rnd = new Random();
                     int image = rnd.Next(0, 4);
-                    theFrenchImage.Source = frenchImages[image].ToString();
-                    theLabel.Text = "Oui, oui!  Vous êtes un vrai francophile. Vous êtes un amoureux de l'art, de la nourriture et de la culture";
-                    theAmerImage.Source = "";
+                    theImage.Source = frenchImages[image].ToString();
+                    theLabel.Text = "Oui, oui!  Vous êtes un vrai Francophile!";
+                    theFrenchImage.IsVisible = false;
+                    theAmerImage.IsVisible = false;
 
-                    lbl_Question_Number.IsVisible = false;
                     True.IsVisible = false;
                     False.IsVisible = false;
+                    Frame_Amer.IsVisible = false;
+                    Frame_France.IsVisible = false;
+                    Frame_theImage.IsVisible = true;
+                    btn_play.IsVisible = true;
                 }
             }
 
-            //Left is False and American
+            //Left is False and French
             else if (e.Direction == SwipeDirection.Left)
             {
-                amerPoints++;
+                frenchPoints++;
+                index++;
                 if (index <= PersonalityQuestions.Count - 1)
                 {
+                    
                     theAmerImage.Source = PersonalityQuestions[index].ImageAmer.ToString();
                     theLabel.Text = PersonalityQuestions[index].Question.ToString();
                     theFrenchImage.Source = PersonalityQuestions[index].ImageFrench.ToString();
-                    index++;
                 }
                 else if (amerPoints > frenchPoints)
                 {
                     Random rnd = new Random();
                     int image = rnd.Next(0, 4);
-                    theAmerImage.Source = amerImages[image].ToString();
+                    theImage.Source = amerImages[image].ToString();
                     theLabel.Text = "Yay!  You are a true American: lover of new ideas and a robust lifestyle.";
-                    theFrenchImage.Source = "";
+                    theFrenchImage.IsVisible = false;
+                    theAmerImage.IsVisible = false;
 
-                    lbl_Question_Number.IsVisible = false;
                     True.IsVisible = false;
                     False.IsVisible = false;
+                    Frame_Amer.IsVisible = false;
+                    Frame_France.IsVisible = false;
+                    Frame_theImage.IsVisible = true;
+                    btn_play.IsVisible = true;
                 }
                 else if (amerPoints < frenchPoints)
                 {
                     Random rnd = new Random();
                     int image = rnd.Next(0, 4);
-                    theFrenchImage.Source = frenchImages[image].ToString();
-                    theLabel.Text = "Oui, oui!  Vous êtes un vrai francophile. Vous êtes un amoureux de l'art, de la nourriture et de la culture";
-                    theAmerImage.Source = "";
+                    theImage.Source = frenchImages[image].ToString();
+                    theLabel.Text = "Oui, oui!  Vous êtes un vrai francophile. Vous êtes un amoureux de l'art, de la nourriture et de la culture.";
+                    theFrenchImage.IsVisible = false;
+                    theAmerImage.IsVisible = false;
 
-                    lbl_Question_Number.IsVisible = false;
                     True.IsVisible = false;
                     False.IsVisible = false;
+                    Frame_Amer.IsVisible = false;
+                    Frame_France.IsVisible = false;
+                    Frame_theImage.IsVisible = true;
+                    btn_play.IsVisible = true;
                 }
             }
             else if (e.Direction == SwipeDirection.Up)
